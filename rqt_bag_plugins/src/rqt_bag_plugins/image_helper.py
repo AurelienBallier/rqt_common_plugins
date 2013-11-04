@@ -34,7 +34,7 @@ import array
 from cStringIO import StringIO
 import sys
 
-import Image
+import PIL.Image as Image
 import cairo
 
 

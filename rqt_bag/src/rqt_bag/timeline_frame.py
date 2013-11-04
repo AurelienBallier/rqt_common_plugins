@@ -33,8 +33,9 @@
 
 from python_qt_binding.QtCore import qDebug, QPointF, QRectF, Qt, qWarning
 from python_qt_binding.QtGui import QBrush, QCursor, QColor, QFont, \
-                                    QFontMetrics, QGraphicsItem, QPen, \
+                                    QFontMetrics, QPen, \
                                     QPolygonF
+from python_qt_binding.QtWidgets import QGraphicsItem
 import rospy
 
 import bisect
@@ -670,7 +671,7 @@ class TimelineFrame(QGraphicsItem):
         from rqt_gui.rospkg_plugin_provider import RospkgPluginProvider
         self.plugin_provider = RospkgPluginProvider('rqt_bag', 'rqt_bag::Plugin')
 
-        plugin_descriptors = self.plugin_provider.discover(None)
+        plugin_descriptors = self.plugin_provider.discover()
         for plugin_descriptor in plugin_descriptors:
             try:
                 plugin = self.plugin_provider.load(plugin_descriptor.plugin_id(), plugin_context=None)

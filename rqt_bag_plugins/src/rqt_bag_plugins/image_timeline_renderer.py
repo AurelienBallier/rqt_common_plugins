@@ -34,8 +34,8 @@ import rospy
 
 import sys
 
-import Image
-import ImageQt
+import PIL.Image as Image
+import PIL.ImageQt5 as ImageQt
 
 from rqt_bag import TimelineCache, TimelineRenderer
 

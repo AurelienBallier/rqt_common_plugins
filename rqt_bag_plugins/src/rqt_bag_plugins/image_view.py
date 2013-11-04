@@ -30,13 +30,14 @@
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-import Image
-import ImageQt
+import PIL.Image as Image
+import PIL.ImageQt5 as ImageQt
 
 from rqt_bag import TopicMessageView
 import image_helper
 
-from python_qt_binding.QtGui import QGraphicsScene, QGraphicsView, QPixmap
+from python_qt_binding.QtGui import QPixmap
+from python_qt_binding.QtWidgets import QGraphicsScene, QGraphicsView
 
 
 class ImageView(TopicMessageView):

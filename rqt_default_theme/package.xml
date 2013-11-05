@@ -1,0 +1,23 @@
+<package>
+  <name>rqt_default_theme</name>
+  <version>0.3.2</version>
+  <description>rqt_default_theme provides a set of icons to replace default theme icons in case any are provided by the system.</description>
+  <maintainer email="aurelien.ballier@cyclonit.com">Aurelien Ballier</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/rqt_default_theme</url>
+  <url type="repository">https://github.com/AurelienBallier/rqt_common_plugins</url>
+  <url type="bugtracker">https://github.com/AurelienBallier/rqt_common_plugins/issues</url>
+
+  <author email="aurelien.ballier@cyclonit.com">Aurelien Ballier</author>
+  <author>Aurelien Ballier</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>python-rospkg</run_depend>
+  <run_depend>roslib</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend version_gte="0.2.12">rqt_gui</run_depend>
+  <run_depend>rqt_gui_py</run_depend>
+</package>

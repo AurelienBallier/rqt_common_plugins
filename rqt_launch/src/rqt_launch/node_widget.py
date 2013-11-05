@@ -35,10 +35,13 @@
 import os
 
 from python_qt_binding import loadUi
-from python_qt_binding.QtGui import QIcon, QLineEdit, QWidget
+from python_qt_binding.QtGui import QIcon
+from python_qt_binding.QtWidgets import QLineEdit, QWidget
 import rospy
 
 from rqt_launch.name_surrogate import NamesSurrogate
+
+from rqt_default_theme.tango_theme import tango_theme
 
 
 class NodeWidget(QWidget):
@@ -80,9 +83,10 @@ class NodeWidget(QWidget):
         self._label_pkg_name.setText(self._launch_config.package)
         self._label_name_executable.setText(self._launch_config.type)
 
-        self._icon_node_start = QIcon.fromTheme('media-playback-start')
-        self._icon_node_stop = QIcon.fromTheme('media-playback-stop')
-        self._icon_respawn_toggle = QIcon.fromTheme('view-refresh')
+        Theme = tango_theme()
+        self._icon_node_start = Theme.fromTheme('media-playback-start')
+        self._icon_node_stop = Theme.fromTheme('media-playback-stop')
+        self._icon_respawn_toggle = Theme.fromTheme('view-refresh')
 
         self._pushbutton_start_stop_node.setIcon(self._icon_node_start)
         self._respawn_toggle.setIcon(self._icon_respawn_toggle)

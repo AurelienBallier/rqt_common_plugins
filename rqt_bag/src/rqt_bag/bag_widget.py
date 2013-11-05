@@ -45,6 +45,7 @@ import rosbag
 import bag_helper
 from .bag_timeline import BagTimeline
 
+from rqt_default_theme.tango_theme import tango_theme
 
 class BagGraphicsView(QGraphicsView):
     def __init__(self, parent=None):
@@ -73,20 +74,22 @@ class BagWidget(QWidget):
         self.graphics_view.resizeEvent = self._resizeEvent
         self.graphics_view.setMouseTracking(True)
 
-        self.play_icon = QIcon.fromTheme('media-playback-start')
-        self.pause_icon = QIcon.fromTheme('media-playback-pause')
+        Theme = tango_theme()
+
+        self.play_icon = Theme.fromTheme('media-playback-start')
+        self.pause_icon = Theme.fromTheme('media-playback-pause')
         self.play_button.setIcon(self.play_icon)
-        self.begin_button.setIcon(QIcon.fromTheme('media-skip-backward'))
-        self.end_button.setIcon(QIcon.fromTheme('media-skip-forward'))
-        self.slower_button.setIcon(QIcon.fromTheme('media-seek-backward'))
-        self.faster_button.setIcon(QIcon.fromTheme('media-seek-forward'))
-        self.zoom_in_button.setIcon(QIcon.fromTheme('zoom-in'))
-        self.zoom_out_button.setIcon(QIcon.fromTheme('zoom-out'))
-        self.zoom_all_button.setIcon(QIcon.fromTheme('zoom-original'))
-        self.thumbs_button.setIcon(QIcon.fromTheme('insert-image'))
-        self.record_button.setIcon(QIcon.fromTheme('media-record'))
-        self.load_button.setIcon(QIcon.fromTheme('document-open'))
-        self.save_button.setIcon(QIcon.fromTheme('document-save'))
+        self.begin_button.setIcon(Theme.fromTheme('media-skip-backward'))
+        self.end_button.setIcon(Theme.fromTheme('media-skip-forward'))
+        self.slower_button.setIcon(Theme.fromTheme('media-seek-backward'))
+        self.faster_button.setIcon(Theme.fromTheme('media-seek-forward'))
+        self.zoom_in_button.setIcon(Theme.fromTheme('zoom-in'))
+        self.zoom_out_button.setIcon(Theme.fromTheme('zoom-out'))
+        self.zoom_all_button.setIcon(Theme.fromTheme('zoom-original'))
+        self.thumbs_button.setIcon(Theme.fromTheme('insert-image'))
+        self.record_button.setIcon(Theme.fromTheme('media-record'))
+        self.load_button.setIcon(Theme.fromTheme('document-open'))
+        self.save_button.setIcon(Theme.fromTheme('document-save'))
 
         self.play_button.clicked[bool].connect(self._handle_play_clicked)
         self.thumbs_button.clicked[bool].connect(self._handle_thumbs_clicked)

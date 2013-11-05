@@ -52,6 +52,8 @@ from rqt_gui_py.plugin import Plugin
 from .dotcode import RosGraphDotcodeGenerator, NODE_NODE_GRAPH, NODE_TOPIC_ALL_GRAPH, NODE_TOPIC_GRAPH
 from .interactive_graphics_view import InteractiveGraphicsView
 
+from rqt_default_theme.tango_theme import tango_theme
+
 
 class RepeatedWordCompleter(QCompleter):
     """A completer that completes multiple times from a list"""
@@ -153,21 +155,23 @@ class RosGraph(Plugin):
         self._widget.leaf_topics_check_box.clicked.connect(self._refresh_rosgraph)
         self._widget.quiet_check_box.clicked.connect(self._refresh_rosgraph)
 
-        self._widget.refresh_graph_push_button.setIcon(QIcon.fromTheme('view-refresh'))
+        Theme = tango_theme()
+
+        self._widget.refresh_graph_push_button.setIcon(Theme.fromTheme('view-refresh'))
         self._widget.refresh_graph_push_button.pressed.connect(self._update_rosgraph)
 
         self._widget.highlight_connections_check_box.toggled.connect(self._redraw_graph_view)
         self._widget.auto_fit_graph_check_box.toggled.connect(self._redraw_graph_view)
-        self._widget.fit_in_view_push_button.setIcon(QIcon.fromTheme('zoom-original'))
+        self._widget.fit_in_view_push_button.setIcon(Theme.fromTheme('zoom-original'))
         self._widget.fit_in_view_push_button.pressed.connect(self._fit_in_view)
 
-        self._widget.load_dot_push_button.setIcon(QIcon.fromTheme('document-open'))
+        self._widget.load_dot_push_button.setIcon(Theme.fromTheme('document-open'))
         self._widget.load_dot_push_button.pressed.connect(self._load_dot)
-        self._widget.save_dot_push_button.setIcon(QIcon.fromTheme('document-save-as'))
+        self._widget.save_dot_push_button.setIcon(Theme.fromTheme('document-save-as'))
         self._widget.save_dot_push_button.pressed.connect(self._save_dot)
-        self._widget.save_as_svg_push_button.setIcon(QIcon.fromTheme('document-save-as'))
+        self._widget.save_as_svg_push_button.setIcon(Theme.fromTheme('document-save-as'))
         self._widget.save_as_svg_push_button.pressed.connect(self._save_svg)
-        self._widget.save_as_image_push_button.setIcon(QIcon.fromTheme('image'))
+        self._widget.save_as_image_push_button.setIcon(Theme.fromTheme('image'))
         self._widget.save_as_image_push_button.pressed.connect(self._save_image)
 
         self._update_rosgraph()
